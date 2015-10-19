@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "SCOPMainViewController.h"
 
 @interface AppDelegate ()
+
+@property (strong, nonatomic) SCOPMainViewController *rootViewController;
 
 @end
 
@@ -16,7 +19,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.rootViewController = [[SCOPMainViewController alloc] initWithNibName:nil bundle:nil];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = self.rootViewController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
